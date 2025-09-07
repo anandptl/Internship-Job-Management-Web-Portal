@@ -17,8 +17,14 @@ public class MainController {
     @Autowired
     private UsersService usersService;
 
-    // Load the sign up/login form
+    // Load the home page 
     @GetMapping("/")
+    public String homepage(){
+        return "home";
+    }
+
+    // login and signup page 
+    @GetMapping("/login")
     public String loginPage(Model model) {
         model.addAttribute("user", new Users());
         return "Signup-Signin";
@@ -84,5 +90,15 @@ public class MainController {
         }
     }
 
+    // Logout session
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+    	session.invalidate();
+        return "Signup-Signin"; // JSP page
+    }
 
+    @GetMapping("/homepage")
+    public String HomePage(){
+        return "home";
+    }
 }

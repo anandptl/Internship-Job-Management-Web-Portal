@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* === Base Styling === */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: #f4f6fa;
+  color: #2c3e50;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* === Layout === */
+.container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(510deg, #007bff, #182848);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+	justify-content: space-between;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo img {
+    width: 80%;
+    margin: 0 auto 30px;
+    display: block;
+
+}
+
+.sidebar nav button {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: left;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.sidebar nav button i {
+    margin-right: 10px;
+}
+
+.sidebar nav button:hover,
+.sidebar nav button.active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* === Main Content === */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  background: #f4f6fa;
+}
+
+/* === Content Card === */
+.content-section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Section Heading */
+.content-section h2 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: #182848;
+  font-weight: 600;
+  border-left: 5px solid #4481eb;
+  padding-left: 12px;
+}
+
+/* === Form Styling === */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #34495e;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #dcdde1;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: 0.3s;
+  background: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #4481eb;
+  box-shadow: 0 0 6px rgba(68, 129, 235, 0.2);
+  outline: none;
+}
+
+/* File Upload */
+.file-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  border: 2px dashed #bbb;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #f9fafc;
+  transition: all 0.3s;
+}
+
+.file-upload-label i {
+  font-size: 28px;
+  color: #4481eb;
+  margin-bottom: 6px;
+}
+
+.file-upload-label:hover {
+  background: #eef4ff;
+  border-color: #4481eb;
+}
+
+/* === Buttons === */
+button[type="submit"],
+.btn-primary {
+  background: linear-gradient(135deg, #4481eb, #04befe);
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(68, 129, 235, 0.25);
+}
+
+button[type="submit"]:hover,
+.btn-primary:hover {
+  background: linear-gradient(135deg, #366fd4, #0398e2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(68, 129, 235, 0.35);
+}
+
+/* Required fields */
+label.required::after {
+  content: " *";
+  color: red;
+  font-weight: bold;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Responsive Styling === */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 12px;
+    border-radius: 0;
+  }
+  .sidebar button {
+    font-size: 14px;
+    width: auto;
+    padding: 10px;
+  }
+  .main-content {
+    padding: 20px;
+  }
+  .content-section {
+    padding: 20px;
+  }
+}

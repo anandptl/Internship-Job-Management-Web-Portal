@@ -14,6 +14,7 @@
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
+		<div>
             <div class="logo">
                 <img src="./image/Zidio_logo.svg" alt="Zidio Logo" />
             </div>
@@ -25,16 +26,12 @@
                 <button type="button"><i class="fas fa-chart-line"></i> Reports</button>
                 <button type="button"><i class="fas fa-cog"></i> Settings</button>
             </nav>
+		</div>
+			<button class="logout-btn"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></button>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Dashboard Header -->
-            <header class="dashboard-header">
-                <h1>Welcome, Admin</h1>
-                <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
-            </header>
-
             <!-- Stats Cards -->
             <section class="stats-cards">
                 <div class="card">

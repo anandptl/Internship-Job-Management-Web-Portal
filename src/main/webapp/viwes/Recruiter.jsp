@@ -7,21 +7,27 @@
     <title>Recruiter Profile | Zidio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/Student.css">
+    <link rel="stylesheet" href="/css/StudentProfile.css">
 </head>
 
 <body>
     <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div><img src="./image/Zidio_logo.svg" alt="Zidio Logo" /></div>
-            <nav>
-                <button type="button">Manage Profile</button>
-                <button type="button">Post Job</button>
-                <button type="button">My Posted Jobs</button>
-                <button type="button">Applications Received</button>
-            </nav>
-        </aside>
+		<aside class="sidebar">
+		    <div>
+		        <div class="logo">
+		            <img src="./image/Zidio_logo.svg" alt="Zidio Logo" />
+		        </div>
+				<nav>
+					<button type="button"><i class="fas fa-tachometer-alt"></i> Dashboard</button>
+					<a href="/StudentProfile"><button type="button"><i class="fas fa-user-graduate"></i> Manage Profile</button></a>
+					<a href=""><button type="button"><i class="fas fa-user-tie"></i> Apply for job </button></a>
+					<a href=""><button type="button"><i class="fas fa-briefcase"></i> My Application</button></a>
+					<a href=""><button type="button"><i class="fas fa-chart-line"></i> Status or notification</button></a>
+				</nav>
+		    </div>
+		    <!-- ✅ Logout fixed at bottom -->
+		    <a href="/logout"><button class="logout-btn"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></button></a>
+		</aside>
 
         <main class="main-content">
             <section id="profile" class="content-section active">

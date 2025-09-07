@@ -11,21 +11,27 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
                 .anyRequest().permitAll()  // allow all requests
             )
             .csrf(csrf -> csrf.disable()) // disable CSRF (for forms/testing)
-            .formLogin(login -> login.disable()) // disable login page
-            .httpBasic(basic -> basic.disable()); // disable basic auth
+            .formLogin(login -> login.disable()) // disable Spring Security login
+            .httpBasic(basic -> basic.disable()) // disable basic auth
+            .logout(logout -> logout
+                .logoutUrl("/logout")                 // endpoint for logout
+                .logoutSuccessUrl("/login")                // redirect to your login page
+                .invalidateHttpSession(true)          // clear session
+                .deleteCookies("JSESSIONID")          // remove JSESSIONID cookie
+            );
 
         return http.build();
     }
-    
+
     // Add the PasswordEncoder bean that your UsersService requires
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }

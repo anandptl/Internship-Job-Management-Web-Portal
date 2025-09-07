@@ -6,7 +6,7 @@
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>SignIn & SignUp</title>
+      <title>SignIn & SignUp | Zidio</title>
 
       <!-- Google Font -->
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -16,14 +16,15 @@
 
       <!-- Normalize.css -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
       <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
-
     <body>
+      
       <div class="container">
         <div class="forms-container">
           <div class="signin-signup">
@@ -130,7 +131,8 @@
             <div class="content">
               <img src="${pageContext.request.contextPath}/image/Zidio_logo.svg" alt="Zidio">
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio minus natus est.</p>
-              <button class="btn transparent" id="sign-up-btn">Register</button>
+              <button class="btn transparent" id="sign-up-btn"><i class="fa-solid fa-id-card"></i> Register</button>
+			        <a href="/homepage"><button class="btn transparent"><i class="fa-solid fa-house"></i> Home</button></a>
             </div>
             <img src="/image/log.svg" class="image" alt="">
           </div>
@@ -139,7 +141,8 @@
             <div class="content">
               <img src="/image/Zidio_logo.svg" alt="Zidio">
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio minus natus est.</p>
-              <button class="btn transparent" id="sign-in-btn">Login</button>
+              <button class="btn transparent" id="sign-in-btn"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
+			        <a href="/homepage"><button class="btn transparent"><i class="fa-solid fa-house"></i> Home</button></a>
             </div>
             <img src="/image/register.svg" class="image" alt="">
           </div>

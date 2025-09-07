@@ -155,8 +155,8 @@ form.sign-in-form {
 }
 
 .social-icon:hover {
-  color: #4481eb;
-  border-color: #4481eb;
+  color: #007bff;
+  border-color: #007bff;
 }
 
 .btn {
@@ -201,7 +201,7 @@ a {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+  background-image: linear-gradient(-45deg, #007bff 0%, #04befe 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -251,12 +251,19 @@ a {
 
 .btn.transparent {
   margin: 0;
-  background: none;
-  border: 2px solid #fff;
+  background-color: #f1d328;
+  color: black;
   width: 130px;
   height: 41px;
+  margin: 5px;
   font-weight: 600;
   font-size: 0.8rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.btn.transparent:hover{
+  background-color: #ffd700;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .right-panel .image,
