@@ -14,6 +14,10 @@ body {
   min-height: 100vh;
 }
 
+#menu-toggle {
+	display: none;
+}
+
 /* === Layout === */
 .container {
   display: flex;
@@ -24,13 +28,17 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;              
+    width: 20%;
     background: linear-gradient(510deg, #007bff, #182848);
     color: #fff;
     padding: 20px;
     display: flex;
     flex-direction: column;
-	justify-content: space-between;
+    justify-content: flex-start;  /* nav starts at top */
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -38,30 +46,70 @@ body {
     width: 80%;
     margin: 0 auto 30px;
     display: block;
-
 }
 
-.sidebar nav button {
+/* Sidebar Buttons (links styled as buttons) */
+.sidebar .nav a.button {
+    display: flex;
+    align-items: center;
     width: 100%;
     background: rgba(255, 255, 255, 0.1);
-    border: none;
+    border-radius: 8px;
     padding: 12px;
     margin-bottom: 10px;
-    border-radius: 8px;
     font-size: 16px;
-    text-align: left;
     color: #fff;
+    text-decoration: none;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.sidebar .nav{
+  flex-grow: 1;
 }
 
-.sidebar nav button i {
+.sidebar .nav a.button i {
     margin-right: 10px;
 }
 
-.sidebar nav button:hover,
-.sidebar nav button.active {
-    background: rgba(255, 255, 255, 0.3);
+/* Active & Hover */
+.sidebar .nav a.button:hover,
+.sidebar .nav a.button.active {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 4px 0 0 #ffcc00;
+}
+
+/* Logout Button */
+.logout-btn {
+  margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff4b5c, #c81d25);
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(200, 29, 37, 0.3);
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-btn i {
+    margin-right: 10px;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #ff1e36, #990f14);
+    box-shadow: inset 4px 0 0 #ffcc00, 0 6px 18px rgba(153, 15, 20, 0.5);
+    transform: translateY(-2px);
+}
+
+.logout-btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 3px 8px rgba(153, 15, 20, 0.4);
 }
 
 
@@ -71,6 +119,7 @@ body {
   padding: 40px;
   overflow-y: auto;
   background: #f4f6fa;
+  margin-left: 20%;
 }
 
 /* === Content Card === */
@@ -221,3 +270,66 @@ label.required::after {
     padding: 20px;
   }
 }
+
+/* === Responsive Sidebar with Toggle === */
+
+/* Hamburger Button */
+.menu-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: #007bff;
+  color: #fff;
+  font-size: 22px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1100;
+  display: none; /* show only on mobile */
+}
+
+/* Hide sidebar by default on small screens */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 240px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    flex-direction: column;
+  }
+
+  /* Show sidebar when checkbox is checked */
+  #menu-toggle:checked ~ .sidebar {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+    margin-top: 60px; /* space for hamburger */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 500px) {
+  .sidebar .nav a.button,
+  .logout-btn {
+    font-size: 0;
+    justify-content: center;
+  }
+
+  .sidebar .nav a.button i,
+  .logout-btn i {
+    margin-right: 0;
+    font-size: 18px;
+  }
+}
+

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,37 +11,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/StudentProfile.css">
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
 <body>
-	<%
+    <%
 	   if (session.getAttribute("loggedInUser") == null) {
 	       response.sendRedirect(request.getContextPath() + "/");
 	       return;
 	   }
-	%>
+	%> 
     <div class="container">
-		<!-- Sidebar -->
-		    <aside class="sidebar">
-		        <div>
-		            <div class="logo">
-		                <img src="./image/Zidio_logo.svg" alt="Zidio Logo" />
-		            </div>
-					<nav>
-						<button type="button"><i class="fas fa-tachometer-alt"></i> Dashboard</button>
-						<button type="button"><i class="fas fa-user-graduate"></i> Manage Users</button>
-						<button type="button"><i class="fas fa-user-tie"></i> Manage Recruiters</button>
-						<button type="button"><i class="fas fa-briefcase"></i> Manage Jobs</button>
-						<button type="button"><i class="fas fa-chart-line"></i> Reports</button>
-						<button type="button"><i class="fas fa-cog"></i> Settings</button>
-					</nav>
-		        </div>
-		        <!-- ✅ Logout fixed at bottom -->
-		        <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></button>
-		    </aside>
-	
+		<!-- Hidden checkbox for toggle -->
+		    <input type="checkbox" id="menu-toggle" hidden>
+		    <label for="menu-toggle" class="menu-btn"><i class="fas fa-bars"></i></label>
+        <!-- Sidebar -->
+        <div class="sidebar">
+                <div class="logo">
+                    <img src="./image/Zidio_logo.svg" alt="Zidio Logo" />
+                </div>
+
+                <div class="nav">
+                    <a href="/dashboard" class="button"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    <a href="/StudentProfile" class="button"><i class="fas fa-user-graduate"></i> Manage Profile</a>
+                    <a href="/applyJob" class="button"><i class="fas fa-user-tie"></i> Apply for Job</a>
+                    <a href="/myApplications" class="button"><i class="fas fa-briefcase"></i> My Applications</a>
+                    <a href="/status" class="button"><i class="fas fa-chart-line"></i> Status/Notifications</a>
+                </div>
+                <div><a href="/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></div>
+            </div>
+
         <main class="main-content">
             <!-- Profile Section -->
             <section id="profile" class="content-section active">
@@ -93,7 +93,9 @@
                     <div class="form-grid">
                         <div class="input-group">
                             <label for="resume" class="required">Resume</label>
-                            <input type="url" id="resume" name="resumeFile" placeholder="https://drive.google.com/file/d/1ej-Lsr27crYvpljk2JY7yjL1/view?usp=drive_link"required>
+                            <input type="url" id="resume" name="resumeFile"
+                                placeholder="https://drive.google.com/file/d/1ej-Lsr27crYvpljk2JY7yjL1/view?usp=drive_link"
+                                required>
                         </div>
 
                         <div class="input-group">
@@ -205,7 +207,8 @@
                     <div class="form-grid">
                         <div class="input-group">
                             <label for="profilePhoto">Profile Photo</label>
-                            <input type="url" id="profilePhoto" name="profilePhoto" placeholder="https://drive.google.com/file/-Lsr27crYvpljk2JY7yjL1/view?usp=drive_link">
+                            <input type="url" id="profilePhoto" name="profilePhoto"
+                                placeholder="https://drive.google.com/file/-Lsr27crYvpljk2JY7yjL1/view?usp=drive_link">
                         </div>
 
                         <div class="input-group">
